@@ -33,7 +33,7 @@ class Post
 
 class Lesson extends Post
 {
-    private $homework;
+    protected $homework;
 
     public function __construct(string $title, string $text, string $homework)
     {
@@ -52,6 +52,31 @@ class Lesson extends Post
     }
 }
 
+class PaidLesson extends Lesson
+{
+    private $price;
+
+    public function __construct(string $title, string $text, string $homework, string $price)
+    {
+        parent::__construct($title, $text, $homework);
+        $this->price = $price;
+    }
+
+    //Цена
+    public function getPrice()
+    {
+        return $this->price;
+    }
+    public function setPrice($price): void
+    {
+        $this->price = $price;
+    }
+}
+
 
 $lesson = new Lesson('Заголовок', 'Текст', 'Домашка');
 echo 'Название урока: ' . $lesson->getTitle();
+
+$paidLesson = new PaidLesson('Урок о наследовании в PHP', 'Лол, кек, чебурек', 'Ложитесь спать, утро вечера мудренее', '99.90');
+
+var_dump($paidLesson);
