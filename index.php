@@ -67,5 +67,6 @@ foreach ($objects as $object) {
     }
     else {
         echo 'Объект класса ' . get_class($object) . ' не реализует интерфейс CalculateSquare';
+        echo '<br>';
     }
 }
