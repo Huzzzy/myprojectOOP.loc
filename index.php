@@ -1,61 +1,32 @@
 <?php
-class Cat
+class Post
 {
-    private $name;
-    private $color;
-    private $weight;
+    protected $title;
+    protected $text;
 
-    public function __construct(string $name, string $color, string $weight)
+    public function __construct(string $title, string $text)
     {
-        $this->name = $name;
-        $this->color = $color;
-        $this->weight = $weight;
+        $this->title = $title;
+        $this->text = $text;
     }
 
-    public function sayHello()
+    //Заголовок
+    public function getTitle()
     {
-        echo 'Привет! Меня зовут ' . $this->name . '.';
-        echo 'Мой цвет - ' . $this->color . '.';
-        echo 'Мой вес - ' . $this->weight . '.';
+        return $this->title;
+    }
+    public function setTitle($title): void
+    {
+        $this->title = $title;
     }
 
-    //Имя
-    public function setName(string $name)
+    //Содержание
+    public function getText()
     {
-        $this->name = $name;
+        return $this->text;
     }
-    public function getName(): string
+    public function setText($text): void
     {
-        return $this->name;
-    }
-
-    //Цвет
-    public function setColor(string $color)
-    {
-        $this->color = $color;
-    }
-    public function getColor(): string
-    {
-        return $this->color;
-    }
-
-    //Вес
-    public function setWeight(float $weight)
-    {
-        $this->weight = $weight;
-    }
-    public function getWeight(): string
-    {
-        return $this->weight;
+        $this->text = $text;
     }
 }
-
-$cat1 = new Cat('Снежок', 'Черный', '3.2');
-
-
-$cat1->sayHello();
-$cat1->setName('Барсик');
-$cat1->setColor('Белый');
-$cat1->setWeight('4.1');
-
-$cat1->sayHello();
