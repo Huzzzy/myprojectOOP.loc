@@ -37,8 +37,7 @@ class Lesson extends Post
 
     public function __construct(string $title, string $text, string $homework)
     {
-        $this->title = $title;
-        $this->text = $text;
+        parent::__construct($title, $text);
         $this->homework = $homework;
     }
 
